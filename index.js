@@ -25,12 +25,12 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.get('/api/whoami', (req, res) => {
-  const ipaddres = req.ip || req.headers['x-forwarded-for'];
+  const ipaddress = req.headers['x-forwarded-for'] || req.ip;
   const language = req.headers['accept-language'];
   const software = req.headers['user-agent'];
 
   res.json({
-    ipaddres: ipaddres,
+    ipaddress: ipaddress,
     language: language,
     software: software
   });
